@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Legal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div id="centrao">
+        <header id="cabecalho">Cabeçalho do Site</header>
+        <div id="container">
+            <nav id="menu">
+                <ul>
+                    <li><a href="http://www.google.com" target="_blank">Vá para o Google</a></li>
+                    <li><a href="http://www.amazon.com.br" target="_blank">Vá para a Amazon</a></li>
+                </ul>
+            </nav>
+
+            <section id="conteudo">
+                <h1>Cat Facts</h1>
+                <article>
+                    <img src="" alt="" id="fotogatinho" width="300px">
+
+                    <p id="gatinho"></p>
+                </article>
+            </section>
+
+        </div>
+    </div>
+
+    <script>
+        
+        fetch('https://catfact.ninja/fact')
+            .then(response => response.json())
+
+            .then(function(data) {
+                document.querySelector('#gatinho').innerHTML = data.fact;
+            })
+
+        fetch('https://api.thecatapi.com/v1/images/search')
+            .then(response => response.json())
+
+            .then(function(data) {
+                document.querySelector('#fotogatinho').src = data[0].url;
+            })
+
+    </script>
+</body>
+</html>
