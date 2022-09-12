@@ -49,6 +49,12 @@ body {
 
 }
 
+#botaoatualiza {
+    width: 200px;
+    padding: 20px;
+    font-size: 20px;
+}
+
 #menu li {
     font-size: 15px;
     padding: 5px;

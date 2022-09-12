@@ -24,9 +24,12 @@
                 <article>
                     <img src="" alt="" id="fotogatinho" width="300px">
 
-                    <p id="gatinho"></p>
+                    <p id="textogatinho"></p>
+
+                    <input id="botaoatualiza" type="button" value="Atualizar" onclick="atualiza()">
                 </article>
             </section>
+
 
         </div>
     </div>
@@ -37,7 +40,7 @@
             .then(response => response.json())
 
             .then(function(data) {
-                document.querySelector('#gatinho').innerHTML = data.fact;
+                document.querySelector('#textogatinho').innerHTML = data.fact;
             })
 
         fetch('https://api.thecatapi.com/v1/images/search')
@@ -46,6 +49,25 @@
             .then(function(data) {
                 document.querySelector('#fotogatinho').src = data[0].url;
             })
+
+        
+        function atualiza() {
+            
+            fetch('https://api.thecatapi.com/v1/images/search')
+                .then(response => response.json())
+
+                .then(function(data) {
+                document.querySelector('#fotogatinho').src = data[0].url;
+                })
+
+            fetch('https://catfact.ninja/fact')
+                .then(response => response.json())
+
+                .then(function(data) {
+                document.querySelector('#textogatinho').innerHTML = data.fact;
+                })
+
+        }
 
     </script>
 </body>
