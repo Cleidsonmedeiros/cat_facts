@@ -36,21 +36,6 @@
 
     <script>
         
-        fetch('https://catfact.ninja/fact')
-            .then(response => response.json())
-
-            .then(function(data) {
-                document.querySelector('#textogatinho').innerHTML = data.fact;
-            })
-
-        fetch('https://api.thecatapi.com/v1/images/search')
-            .then(response => response.json())
-
-            .then(function(data) {
-                document.querySelector('#fotogatinho').src = data[0].url;
-            })
-
-        
         function atualiza() {
 
             fetch('https://api.thecatapi.com/v1/images/search')
@@ -68,6 +53,8 @@
                 })
 
         }
+
+        atualiza()
 
     </script>
 </body>
